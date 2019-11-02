@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/coloredBackground"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".View.LoginActivity">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:src="@drawable/logo" />
+
+    <EditText
+        android:id="@+id/editTxtNome"
+        style="@style/editTextPerson"
+        android:layout_marginTop="200dp" />
+
+    <EditText
+        android:id="@+id/editTxtEmail"
+        style="@style/editTextEmail"
+        android:layout_below="@id/editTxtNome" />
+
+    <EditText
+        android:id="@+id/editTxtSenha"
+        style="@style/editTextPassword"
+        android:layout_below="@id/editTxtEmail" />
+
+    <Button
+        android:id="@+id/btnRegister"
+        style="@style/primaryButton"
+        android:layout_above="@id/btnLogin"
+        android:text="@string/login_cadastrar_se" />
+
+    <Button
+        android:id="@+id/btnLogin"
+        style="@style/secondaryButton"
+        android:layout_alignParentBottom="true"
+        android:text="@string/register_voltar_para_login" />
+</RelativeLayout>

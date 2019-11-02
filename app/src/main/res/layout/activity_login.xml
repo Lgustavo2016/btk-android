@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="@style/coloredBackground"
+    tools:context=".View.LoginActivity">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:src="@drawable/logo" />
+
+    <EditText
+        android:id="@+id/editTxtEmail"
+        style="@style/editTextEmail"
+        android:layout_marginTop="280dp" />
+
+    <EditText
+        android:id="@+id/editTxtSenha"
+        style="@style/editTextPassword"
+        android:layout_below="@id/editTxtEmail" />
+
+    <Button
+        android:id="@+id/btnLogin"
+        style="@style/primaryButton"
+        android:layout_above="@id/btnRegister"
+        android:text="@string/login_entrar_no_btk"/>
+
+    <Button
+        android:id="@+id/btnRegister"
+        style="@style/secondaryButton"
+        android:layout_alignParentBottom="true"
+        android:text="@string/login_cadastrar_se" />
+</RelativeLayout>
