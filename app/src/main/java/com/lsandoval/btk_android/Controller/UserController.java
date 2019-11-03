@@ -16,7 +16,14 @@ public class UserController {
     /*
     * Creates an User
     */
-    public boolean registrarUsuario(UserBean user) {
+    public boolean registerUser(UserBean user) {
         return this.USER_DAO.create(user);
+    }
+
+    /*
+     * Authenticates an User
+     */
+    public UserBean authenticateUser(UserBean user) {
+        return this.USER_DAO.authenticate(user);
     }
 }

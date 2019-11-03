@@ -59,7 +59,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         user.setName(mViewHolder.txtNome.getText().toString());
         user.setPassword(mViewHolder.txtSenha.getText().toString());
 
-        if (userController.registrarUsuario(user)) {
+        if (userController.registerUser(user)) {
             Toast.makeText(this, "Cadastrado com sucesso!", Toast.LENGTH_LONG).show();
             startActivity(new Intent(this, LoginActivity.class));
         } else {
