@@ -10,20 +10,23 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".View.RegisterActivity"
-            android:launchMode="singleInstance"
-            android:theme="@style/noActionBar" />
-        <activity
-            android:name=".View.LoginActivity"
-            android:launchMode="singleInstance"
-            android:theme="@style/noActionBar">
+            android:name=".View.SplashActivity"
+            android:theme="@style/noActionBar"
+            android:launchMode="singleInstance">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity
+            android:name=".View.RegisterActivity"
+            android:launchMode="singleInstance"
+            android:theme="@style/noActionBar" />
+        <activity
+            android:name=".View.LoginActivity"
+            android:launchMode="singleInstance"
+            android:theme="@style/noActionBar" />
         <activity
             android:name=".View.MainActivity"
             android:launchMode="singleInstance" />

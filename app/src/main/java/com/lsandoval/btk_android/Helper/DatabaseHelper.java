@@ -16,7 +16,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             "user",
             "author",
             "gender",
-            "book"
+            "book",
+            "loan"
     };
 
     private static final String[] CREATE_DATABASE_TABLES = {
@@ -48,6 +49,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     "CONSTRAINT gender_id " +
                     "FOREIGN KEY (gender_id) " +
                     "REFERENCES gender(id)) ",
+            "CREATE TABLE loan" +
+                    "( id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    "loanstatus VARCHAR NOT NULL, " +
+                    "loanDate DATE NOT NULL, " +
+                    "returnDate DATE NOT NULL, " +
+                    "renter_id INTEGER NOT NULL, " +
+                    "lessee_id INTEGER NOT NULL, " +
+                    "CONSTRAINT renter_id " +
+                    "FOREIGN KEY (renter_id) " +
+                    "REFERENCES user(id), " +
+                    "CONSTRAINT lessee_id " +
+                    "FOREIGN KEY (lessee) " +
+                    "REFERENCES user(id)) ",
     };
     // endregion
 

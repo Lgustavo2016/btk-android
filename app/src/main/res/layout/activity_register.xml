@@ -2,22 +2,18 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/coloredBackground"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     tools:context=".View.LoginActivity">
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        style="@style/AppLogoMedium"
         android:layout_alignParentTop="true"
-        android:layout_centerInParent="true"
-        android:src="@drawable/logo" />
+        android:layout_centerInParent="true" />
 
     <EditText
         android:id="@+id/editTxtNome"
         style="@style/editTextPerson"
-        android:layout_marginTop="200dp" />
+        android:layout_marginTop="220dp" />
 
     <EditText
         android:id="@+id/editTxtEmail"
