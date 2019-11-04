@@ -2,8 +2,12 @@
     <string name="app_name">BTK</string>
     <string name="login_entrar_no_btk">Entrar no BTK</string>
     <string name="login_cadastrar_se">Cadastrar-se</string>
-    <string name="login_digite_sua_senha_ultrasecreta">Digite sua senha ultrasecreta...</string>
-    <string name="login_digite_seu_e_mail">Digite seu e-mail...</string>
-    <string name="register_digite_seu_nome_completo">Digite seu nome completo...</string>
+    <string name="login_digite_sua_senha_ultrasecreta">Senha</string>
+    <string name="login_digite_seu_e_mail">E-mail</string>
+    <string name="register_digite_seu_nome_completo">Nome</string>
     <string name="register_voltar_para_login">Voltar para Login</string>
+    <string name="helper_password">Não se preocupe, sua senha é ultrasecreta.</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

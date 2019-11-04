@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/coloredBackground"
-    tools:context=".View.LoginActivity">
+    tools:context=".View.Auth.LoginActivity">
 
     <ImageView
         android:id="@+id/logo"
@@ -10,20 +11,41 @@
         android:layout_alignParentTop="true"
         android:layout_centerInParent="true" />
 
-    <EditText
-        android:id="@+id/editTxtNome"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/editTxtNomeLayout"
         style="@style/editTextPerson"
-        android:layout_marginTop="220dp" />
+        android:layout_marginTop="200dp">
 
-    <EditText
-        android:id="@+id/editTxtEmail"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTxtNome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/editTxtEmailLayout"
         style="@style/editTextEmail"
-        android:layout_below="@id/editTxtNome" />
+        android:layout_below="@id/editTxtNomeLayout">
 
-    <EditText
-        android:id="@+id/editTxtSenha"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTxtEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/editTxtPasswordLayout"
         style="@style/editTextPassword"
-        android:layout_below="@id/editTxtEmail" />
+        android:layout_below="@id/editTxtEmailLayout"
+        app:helperText="@string/helper_password"
+        app:helperTextTextColor="@color/colorWhite">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTxtPassword"
+            android:inputType="textPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/btnRegister"

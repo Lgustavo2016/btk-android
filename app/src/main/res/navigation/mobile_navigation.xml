@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/destination_home">
+
+    <fragment
+        android:id="@+id/destination_home"
+        android:name="com.lsandoval.btk_android.View.Modules.Home.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_next"
+            app:destination="@+id/destination_keep_loan" />
+    </fragment>
+    <fragment
+        android:id="@+id/destination_gender"
+        android:name="com.lsandoval.btk_android.View.Modules.Gender.GenderFragment"
+        android:label="Gêneros"
+        tools:layout="@layout/fragment_gender">
+        <action
+            android:id="@+id/action_next"
+            app:destination="@id/destination_keep_gender" />
+    </fragment>
+    <fragment
+        android:id="@+id/destination_book"
+        android:name="com.lsandoval.btk_android.View.Modules.Book.BookFragment"
+        android:label="Livros"
+        tools:layout="@layout/fragment_book">
+        <action
+            android:id="@+id/action_next"
+            app:destination="@id/destination_keep_book" />
+    </fragment>
+    <fragment
+        android:id="@+id/destination_keep_author"
+        android:name="com.lsandoval.btk_android.View.Modules.Author.KeepAuthorFragment"
+        android:label="Manter Autor"
+        tools:layout="@layout/fragment_keep_author">
+        <argument
+            android:name="author"
+            android:defaultValue="@null"
+            app:argType="com.lsandoval.btk_android.Model.AuthorBean"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/destination_keep_book"
+        android:name="com.lsandoval.btk_android.View.Modules.Book.KeepBookFragment"
+        android:label="Manter Livro"
+        tools:layout="@layout/fragment_keep_book">
+        <argument
+            android:name="book"
+            android:defaultValue="@null"
+            app:argType="com.lsandoval.btk_android.Model.BookBean"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/destination_keep_gender"
+        android:name="com.lsandoval.btk_android.View.Modules.Gender.KeepGenderFragment"
+        android:label="Manter Gênero"
+        tools:layout="@layout/fragment_keep_gender">
+        <argument
+            android:name="gender"
+            android:defaultValue="@null"
+            app:argType="com.lsandoval.btk_android.Model.GenderBean"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/destination_author"
+        android:name="com.lsandoval.btk_android.View.Modules.Author.AuthorFragment"
+        android:label="Autores"
+        tools:layout="@layout/fragment_author" >
+        <action
+            android:id="@+id/action_next"
+            app:destination="@id/destination_keep_author" />
+    </fragment>
+    <fragment
+        android:id="@+id/destination_keep_loan"
+        android:name="com.lsandoval.btk_android.View.Modules.Home.KeepLoanFragment"
+        android:label="Manter Empréstimo"
+        tools:layout="@layout/fragment_keep_loan">
+        <argument
+            android:name="loan"
+            android:defaultValue="@null"
+            app:argType="com.lsandoval.btk_android.Model.LoanBean"
+            app:nullable="true" />
+    </fragment>
+</navigation>

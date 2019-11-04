@@ -1,8 +1,9 @@
 package com.lsandoval.btk_android.Model;
 
+import java.io.Serializable;
 import java.sql.Date;
 
-public class LoanBean {
+public class LoanBean implements Serializable {
 
     private int id;
     private Date loanDate;

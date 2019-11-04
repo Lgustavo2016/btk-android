@@ -1,6 +1,8 @@
 package com.lsandoval.btk_android.Model;
 
-public class BookBean {
+import java.io.Serializable;
+
+public class BookBean implements Serializable {
 
     private int id;
     private String name;

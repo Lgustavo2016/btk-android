@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/destination_home"
+        android:icon="@drawable/ic_home"
+        android:title="Home" />
+    <item
+        android:id="@+id/destination_author"
+        android:icon="@drawable/ic_supervisor"
+        android:title="Autores" />
+    <item
+        android:id="@+id/destination_gender"
+        android:icon="@drawable/ic_format_quote"
+        android:title="Gêneros" />
+    <item
+        android:id="@+id/destination_book"
+        android:icon="@drawable/ic_collections_bookmark"
+        android:title="Livros" />
+</menu>

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import com.lsandoval.btk_android.R;
+import com.lsandoval.btk_android.View.Auth.LoginActivity;
 
 public class SplashActivity extends AppCompatActivity {
 

@@ -7,7 +7,7 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 
 import com.lsandoval.btk_android.Model.UserBean;
-import com.lsandoval.btk_android.View.LoginActivity;
+import com.lsandoval.btk_android.View.Auth.LoginActivity;
 
 public class SessionManager {
     // Shared Preferences

@@ -1,6 +1,8 @@
 package com.lsandoval.btk_android.Model;
 
-public class GenderBean {
+import java.io.Serializable;
+
+public class GenderBean implements Serializable {
 
     private int id;
     private String name;

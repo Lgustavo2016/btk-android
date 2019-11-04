@@ -1,6 +1,8 @@
 package com.lsandoval.btk_android.Model;
 
-public class UserBean {
+import java.io.Serializable;
+
+public class UserBean implements Serializable {
 
     private int id;
     private String name;

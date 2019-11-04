@@ -1,4 +1,4 @@
-package com.lsandoval.btk_android.View;
+package com.lsandoval.btk_android.View.Auth;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,12 +7,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.lsandoval.btk_android.Controller.UserController;
 import com.lsandoval.btk_android.Helper.SessionManager;
 import com.lsandoval.btk_android.Model.UserBean;
 import com.lsandoval.btk_android.R;
+import com.lsandoval.btk_android.View.MainActivity;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -27,7 +28,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_login);
 
         mViewHolder.txtEmail = findViewById(R.id.editTxtEmail);
-        mViewHolder.txtPassword = findViewById(R.id.editTxtSenha);
+        mViewHolder.txtPassword = findViewById(R.id.editTxtPassword);
         mViewHolder.btnLogin = findViewById(R.id.btnLogin);
         mViewHolder.btnRegister = findViewById(R.id.btnRegister);
 
@@ -37,24 +38,16 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
-
-//        if (this.mSessionManager.isLoggedIn()) {
-//            startActivity(new Intent(this, MainActivity.class));
-//        }
-    }
-
-    @Override
     public void onClick(View v) {
         if (v.getId() == R.id.btnLogin) {
             if (!fieldsFullfilled()) {
-                Toast.makeText(this, "Preencha todos os campos!", Toast.LENGTH_LONG).show();
+                Snackbar.make(v, "Preencha todos os campos!", Snackbar.LENGTH_LONG).show();
             } else {
-                this._handleLogin();
+                this._handleLogin(v);
             }
         } else {
             startActivity(new Intent(this, RegisterActivity.class));
+            finish();
         }
     }
 
@@ -62,7 +55,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         return !("".equals(mViewHolder.txtEmail.getText().toString()) || "".equals(mViewHolder.txtPassword.getText().toString()));
     }
 
-    private void _handleLogin() {
+    private void _handleLogin(View v) {
         final UserBean user = new UserBean();
         final UserController userController = new UserController(this);
 
@@ -75,9 +68,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             this.mSessionManager.createLoginSession(returnedUser.getName(), returnedUser.getEmail(), returnedUser.getId());
 
             startActivity(new Intent(this, MainActivity.class));
-            Toast.makeText(this, "Seja bem vindo, " + returnedUser.getName(), Toast.LENGTH_LONG).show();
+            finish();
         } else {
-            Toast.makeText(this, "Usuário ou senha inválidos!", Toast.LENGTH_LONG).show();
+            Snackbar.make(v, "Usuário ou senha inválidos!", Snackbar.LENGTH_LONG).show();
         }
     }
 

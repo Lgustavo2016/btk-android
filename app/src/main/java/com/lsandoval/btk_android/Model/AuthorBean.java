@@ -1,6 +1,8 @@
 package com.lsandoval.btk_android.Model;
 
-public class AuthorBean {
+import java.io.Serializable;
+
+public class AuthorBean implements Serializable {
 
     private int id;
     private int age;

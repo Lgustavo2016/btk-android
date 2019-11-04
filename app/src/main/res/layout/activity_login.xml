@@ -2,30 +2,44 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/coloredBackground"
-    tools:context=".View.LoginActivity">
+    tools:context=".View.Auth.LoginActivity">
 
     <ImageView
         android:id="@+id/logo"
         style="@style/AppLogoMedium"
         android:layout_alignParentTop="true"
-        android:layout_centerInParent="true"/>
+        android:layout_centerInParent="true" />
 
-    <EditText
-        android:id="@+id/editTxtEmail"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/editTxtEmailLayout"
         style="@style/editTextEmail"
-        android:layout_marginTop="250dp" />
+        android:layout_marginTop="250dp">
 
-    <EditText
-        android:id="@+id/editTxtSenha"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTxtEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/editTxtPasswordLayout"
         style="@style/editTextPassword"
-        android:layout_below="@id/editTxtEmail" />
+        android:layout_below="@id/editTxtEmailLayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTxtPassword"
+            android:inputType="textPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/btnLogin"
         style="@style/primaryButton"
-        android:background="@color/colorButtonPrimary"
         android:layout_above="@id/btnRegister"
-        android:text="@string/login_entrar_no_btk"/>
+        android:background="@color/colorButtonPrimary"
+        android:text="@string/login_entrar_no_btk" />
 
     <Button
         android:id="@+id/btnRegister"

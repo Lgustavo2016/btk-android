@@ -9,7 +9,6 @@
 
     <style name="noActionBar" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="android:fontFamily">sans-serif-light</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
     </style>
 
@@ -56,9 +55,8 @@
         <item name="android:layout_height">match_parent</item>
     </style>
 
-    <style name="editText" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+    <style name="editText" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
         <item name="android:layout_marginBottom">30dp</item>
-        <item name="android:padding">15dp</item>
         <item name="android:textSize">16sp</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -67,23 +65,44 @@
     <style name="editTextWhite" parent="editText">
         <item name="android:textColor">@color/colorWhite</item>
         <item name="android:textColorHint">@color/colorWhite</item>
-        <item name="android:backgroundTint">@color/colorWhite</item>
+        <item name="boxBackgroundColor">@color/colorAccent</item>
     </style>
 
     <style name="editTextEmail" parent="editTextWhite">
-        <item name="android:drawableRight">@drawable/baseline_email_white_18dp</item>
+        <item name="endIconMode">custom</item>
+        <item name="endIconDrawable">@drawable/ic_email</item>
+        <item name="endIconTint">@color/colorWhite</item>
         <item name="android:inputType">textEmailAddress</item>
         <item name="android:hint">@string/login_digite_seu_e_mail</item>
     </style>
 
     <style name="editTextPassword" parent="editTextWhite">
-        <item name="android:drawableRight">@drawable/baseline_lock_white_18dp</item>
-        <item name="android:inputType">textPassword</item>
+        <item name="passwordToggleEnabled">true</item>
+        <item name="passwordToggleTint">@color/colorWhite</item>
         <item name="android:hint">@string/login_digite_sua_senha_ultrasecreta</item>
     </style>
 
     <style name="editTextPerson" parent="editTextWhite">
-        <item name="android:drawableRight">@drawable/baseline_person_white_18dp</item>
+        <item name="endIconMode">custom</item>
+        <item name="endIconDrawable">@drawable/ic_person</item>
+        <item name="endIconTint">@color/colorWhite</item>
         <item name="android:hint">@string/register_digite_seu_nome_completo</item>
     </style>
+
+    <style name="floatingActionButton" parent="Widget.MaterialComponents.FloatingActionButton">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">bottom|end</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="srcCompat">@drawable/ic_add</item>
+        <item name="tint">@color/colorWhite</item>
+    </style>
+
+    <style name="framelayoutConfig" parent="Widget.Design.ScrimInsetsFrameLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:padding">20dp</item>
+    </style>
+
 </resources>

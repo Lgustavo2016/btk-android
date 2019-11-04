@@ -1,4 +1,4 @@
-package com.lsandoval.btk_android.View;
+package com.lsandoval.btk_android.View.Auth;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,8 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.lsandoval.btk_android.Controller.UserController;
 import com.lsandoval.btk_android.Model.UserBean;
 import com.lsandoval.btk_android.R;
@@ -24,7 +24,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         mViewHolder.txtEmail = findViewById(R.id.editTxtEmail);
         mViewHolder.txtNome = findViewById(R.id.editTxtNome);
-        mViewHolder.txtSenha = findViewById(R.id.editTxtSenha);
+        mViewHolder.txtSenha = findViewById(R.id.editTxtPassword);
         mViewHolder.btnLogin = findViewById(R.id.btnLogin);
         mViewHolder.btnCadastrar = findViewById(R.id.btnRegister);
 
@@ -36,12 +36,14 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View v) {
         if (v.getId() == R.id.btnRegister) {
             if (!this._fieldsFullFilled()) {
-                Toast.makeText(this, "Preencha todos os campos!", Toast.LENGTH_LONG).show();
+                Snackbar.make(v, "Preencha todos os campos!", Snackbar.LENGTH_LONG).show();
             } else {
-                this._registerUser();
+                this._registerUser(v);
             }
         } else {
+            Snackbar.make(v, "Cadastrado com sucesso!", Snackbar.LENGTH_LONG).show();
             startActivity(new Intent(this, LoginActivity.class));
+            finish();
         }
     }
 
@@ -51,7 +53,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 "".equals(mViewHolder.txtNome.getText().toString()));
     }
 
-    private void _registerUser() {
+    private void _registerUser(View v) {
         final UserBean user = new UserBean();
         final UserController userController = new UserController(this);
 
@@ -60,10 +62,11 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         user.setPassword(mViewHolder.txtSenha.getText().toString());
 
         if (userController.registerUser(user)) {
-            Toast.makeText(this, "Cadastrado com sucesso!", Toast.LENGTH_LONG).show();
+            Snackbar.make(v, "Cadastrado com sucesso!", Snackbar.LENGTH_LONG).show();
             startActivity(new Intent(this, LoginActivity.class));
+            finish();
         } else {
-            Toast.makeText(this, "Erro ao cadastrar Usuário!", Toast.LENGTH_LONG).show();
+            Snackbar.make(v, "Erro ao cadastrar usuário!", Snackbar.LENGTH_LONG).show();
         }
     }
 
