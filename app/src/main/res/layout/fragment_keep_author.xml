@@ -4,4 +4,54 @@
     style="@style/framelayoutConfig"
     tools:context=".View.Modules.Author.KeepAuthorFragment">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/editTxtAuthorNameLayout"
+            style="@style/editText">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTxtAuthorName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="@string/keep_author_nome_do_autor" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/editTxtCountryLayout"
+            style="@style/editText"
+            android:layout_below="@id/editTxtAuthorNameLayout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTxtCountry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/keep_author_nacionalidade" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/editTxtAgeLayout"
+            style="@style/editText"
+            android:layout_below="@id/editTxtCountryLayout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTxtAge"
+                android:layout_width="match_parent"
+                android:inputType="number"
+                android:layout_height="wrap_content"
+                android:hint="@string/keep_author_idade" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btnKeepAuthor"
+            style="@style/primaryButton"
+            android:layout_alignParentBottom="true"
+            android:text="@string/keep_author_salvar_autor" />
+
+    </RelativeLayout>
+
+
 </FrameLayout>

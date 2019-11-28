@@ -1,7 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/framelayoutConfig"
     tools:context=".View.Modules.Book.KeepBookFragment">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/editTxtBookNameLayout"
+                style="@style/editText">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTxtBookName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/keep_book_nome_do_livro" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/dropdownAuthor"
+                style="@style/userDropdown"
+                android:layout_below="@id/editTxtBookNameLayout"
+                android:hint="@string/keep_book_selecione_um_autor">
+
+                <AutoCompleteTextView
+                    android:id="@+id/filled_exposed_dropdown"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/dropdownGenderLayout"
+                style="@style/genderDropdown"
+                android:layout_below="@id/dropdownAuthor"
+                android:hint="@string/keep_book_selecione_um_genero">
+
+                <AutoCompleteTextView
+                    android:id="@+id/dropdownGender"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/editTxtPublishingCompanyLayout"
+                style="@style/editText"
+                android:layout_below="@id/dropdownGenderLayout">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTxtPublishingCompany"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/keep_book_editora" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/editTxtQuantityLayout"
+                style="@style/editText"
+                android:layout_below="@id/editTxtPublishingCompanyLayout">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTxtQuantity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/keep_book_quantidade_de_exemplares"
+                    android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/editTxtSummaryLayout"
+                style="@style/editText"
+                android:layout_below="@id/editTxtQuantityLayout"
+                app:counterEnabled="true"
+                app:counterMaxLength="100"
+                app:counterTextColor="@color/colorBlack">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editTxtSummary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/keep_book_sinopse"
+                    android:inputType="textMultiLine"
+                    android:lines="3"
+                    android:maxLines="3" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/btnKeepBook"
+                style="@style/primaryButton"
+                android:layout_below="@id/editTxtSummaryLayout"
+                android:text="@string/keep_book_salvar_livro" />
+        </RelativeLayout>
+    </ScrollView>
 </FrameLayout>

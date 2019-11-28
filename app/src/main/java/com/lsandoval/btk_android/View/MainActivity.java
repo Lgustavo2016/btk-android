@@ -2,6 +2,8 @@ package com.lsandoval.btk_android.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
@@ -14,11 +16,15 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.lsandoval.btk_android.Helper.SessionManager;
 import com.lsandoval.btk_android.R;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements MenuItem.OnMenuItemClickListener {
 
     private SessionManager mSessionManager;
 
     private BottomNavigationView mBottomNavigationView;
+
+    private NavController mNavController;
+
+    private MenuItem mExitAppButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,11 +36,15 @@ public class MainActivity extends AppCompatActivity {
 
         mBottomNavigationView = findViewById(R.id.bottom_nav);
 
-        final NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        mNavController = Navigation.findNavController(this, R.id.nav_host_fragment);
 
-        this._setupBottomNavMenu(navController);
-        this._setupActionBar(navController);
+        this._setupBottomNavMenu(mNavController);
+        this._setupActionBar(mNavController);
 
+        mExitAppButton = findViewById(R.id.exit_app);
+
+        System.out.print(mExitAppButton);
+        mExitAppButton.setOnMenuItemClickListener(this);
     }
 
     private void _setupBottomNavMenu(NavController navController) {
@@ -48,8 +58,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    public boolean onSupportNavigateUp() {
+        return NavigationUI.navigateUp(mNavController, (DrawerLayout) null);
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_toolbar, menu);
+        menu.findItem(R.id.exit_app).setOnMenuItemClickListener(this);
         return true;
     }
 
@@ -61,4 +77,13 @@ public class MainActivity extends AppCompatActivity {
         return navigated || super.onOptionsItemSelected(item);
     }
 
+    private boolean _logout() {
+        mSessionManager.logoutUser();
+        return true;
+    }
+
+    @Override
+    public boolean onMenuItemClick(MenuItem item) {
+        return this._logout();
+    }
 }

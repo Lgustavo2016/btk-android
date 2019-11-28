@@ -41,9 +41,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        mViewHolder.floatingActionButton = getView().findViewById(R.id.floating_action_button);
-        mViewHolder.floatingActionButton.setOnClickListener(this);
-
         List<UserBean> users = new UserController(getContext()).listAllUsers();
 
         if (users.size() > 0) {
@@ -69,13 +66,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.floating_action_button) {
-            final HomeFragmentDirections.ActionNext next_action = HomeFragmentDirections.actionNext();
-            Navigation.findNavController(v).navigate(next_action);
-        }
+
     }
 
     private static class ViewHolder {
-        FloatingActionButton floatingActionButton;
     }
 }

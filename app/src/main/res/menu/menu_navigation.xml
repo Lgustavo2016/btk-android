@@ -9,6 +9,10 @@
         android:icon="@drawable/ic_supervisor"
         android:title="Autores" />
     <item
+        android:id="@+id/destination_keep_loan"
+        android:icon="@drawable/ic_add_circle"
+        android:title="Emprestar" />
+    <item
         android:id="@+id/destination_gender"
         android:icon="@drawable/ic_format_quote"
         android:title="Gêneros" />

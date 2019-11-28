@@ -12,8 +12,4 @@
 
     </LinearLayout>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floating_action_button"
-        style="@style/floatingActionButton" />
-
 </FrameLayout>
