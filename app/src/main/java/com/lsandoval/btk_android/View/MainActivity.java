@@ -24,8 +24,6 @@ public class MainActivity extends AppCompatActivity implements MenuItem.OnMenuIt
 
     private NavController mNavController;
 
-    private MenuItem mExitAppButton;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         this.mSessionManager = new SessionManager(this);
@@ -40,11 +38,6 @@ public class MainActivity extends AppCompatActivity implements MenuItem.OnMenuIt
 
         this._setupBottomNavMenu(mNavController);
         this._setupActionBar(mNavController);
-
-        mExitAppButton = findViewById(R.id.exit_app);
-
-        System.out.print(mExitAppButton);
-        mExitAppButton.setOnMenuItemClickListener(this);
     }
 
     private void _setupBottomNavMenu(NavController navController) {

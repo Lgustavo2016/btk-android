@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:minHeight="100dp"
+    app:cardBackgroundColor="@color/colorSecondary"
+    app:cardCornerRadius="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="15dp">
+
+            <TextView
+                android:id="@+id/author_card_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:textColor="#000"
+                android:textSize="18sp"
+                tools:text="Title" />
+
+            <TextView
+                android:id="@+id/author_card_age"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#FFF"
+                tools:text="Age" />
+
+            <TextView
+                android:id="@+id/author_card_nationality"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#FFF"
+                tools:text="Nationality" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/author_card_editBtn"
+                style="@style/primaryButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_editar" />
+
+            <Button
+                android:id="@+id/author_card_deleteBtn"
+                style="@style/secondaryButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_deletar" />
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

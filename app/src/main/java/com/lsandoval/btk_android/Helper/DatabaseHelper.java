@@ -71,15 +71,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        for (int i = 0; i < CREATE_DATABASE_TABLES.length; i++) {
-            db.execSQL(CREATE_DATABASE_TABLES[i]);
-        }
+        for (final String createTableQuery : CREATE_DATABASE_TABLES) db.execSQL(createTableQuery);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        for (int i = 0; i < DATABASE_TABLES.length; i++) {
-            db.execSQL(String.format("DROP TABLE IF EXISTS %s", DATABASE_TABLES[i]));
-        }
+        for (final String table : DATABASE_TABLES) db.execSQL(String.format("DROP TABLE IF EXISTS %s", table));
     }
 }

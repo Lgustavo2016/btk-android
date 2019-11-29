@@ -108,6 +108,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_gravity">bottom|end</item>
         <item name="android:layout_margin">10dp</item>
+        <item name="backgroundTint">@color/colorPrimaryDark</item>
         <item name="srcCompat">@drawable/ic_add</item>
         <item name="tint">@color/colorWhite</item>
     </style>

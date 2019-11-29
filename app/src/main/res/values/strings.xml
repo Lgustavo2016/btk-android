@@ -21,4 +21,6 @@
     <string name="keep_author_nacionalidade">Nacionalidade</string>
     <string name="keep_author_idade">Idade</string>
     <string name="keep_author_salvar_autor">Salvar Autor</string>
+    <string name="label_editar">Editar</string>
+    <string name="label_deletar">Deletar</string>
 </resources>
