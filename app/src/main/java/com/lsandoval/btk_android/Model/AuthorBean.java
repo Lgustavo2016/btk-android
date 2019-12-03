@@ -1,5 +1,7 @@
 package com.lsandoval.btk_android.Model;
 
+import androidx.annotation.NonNull;
+
 import java.io.Serializable;
 
 public class AuthorBean implements Serializable {
@@ -41,4 +43,9 @@ public class AuthorBean implements Serializable {
         this.country = country;
     }
 
+    @NonNull
+    @Override
+    public String toString() {
+        return this.name;
+    }
 }

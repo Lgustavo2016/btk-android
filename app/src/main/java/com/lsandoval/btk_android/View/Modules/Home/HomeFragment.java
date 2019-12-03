@@ -40,28 +40,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        List<UserBean> users = new UserController(getContext()).listAllUsers();
-
-        if (users.size() > 0) {
-            LinearLayout linearLayout = getView().findViewById(R.id.usersList);
-            for (UserBean user : users) {
-                int id = user.getId();
-                String nome = user.getName();
-                String email = user.getEmail();
-
-                String txtViewContatos = nome + " - " + email;
-
-                TextView textViewContatoItem = new TextView(getContext());
-                textViewContatoItem.setPadding(0, 10, 0, 10);
-                textViewContatoItem.setText(txtViewContatos);
-                textViewContatoItem.setTag(Integer.toString(id));
-
-                linearLayout.addView(textViewContatoItem);
-
-            }
-
-        }
     }
 
     @Override

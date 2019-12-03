@@ -7,4 +7,6 @@
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorBlack">#222</color>
     <color name="colorButtonPrimary">#00BCD4</color>
+
+    <color name="cardBackground">#B2E9FF</color>
 </resources>

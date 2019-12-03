@@ -2,25 +2,27 @@
     <string name="app_name">BTK</string>
     <string name="login_entrar_no_btk">Entrar no BTK</string>
     <string name="login_cadastrar_se">Cadastrar-se</string>
-    <string name="login_digite_sua_senha_ultrasecreta">Senha</string>
-    <string name="login_digite_seu_e_mail">E-mail</string>
-    <string name="register_digite_seu_nome_completo">Nome</string>
+    <string name="login_digite_sua_senha_ultrasecreta">Senha*</string>
+    <string name="login_digite_seu_e_mail">E-mail*</string>
+    <string name="register_digite_seu_nome_completo">Nome*</string>
     <string name="register_voltar_para_login">Voltar para Login</string>
     <string name="helper_password">Não se preocupe, sua senha é ultrasecreta.</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="keep_book_salvar_livro">Salvar Livro</string>
-    <string name="keep_book_nome_do_livro">Nome do Livro</string>
+    <string name="keep_book_nome_do_livro">Nome do Livro*</string>
     <string name="keep_book_sinopse">Sinopse</string>
     <string name="keep_book_quantidade_de_exemplares">Quantidade de Exemplares</string>
-    <string name="keep_book_editora">Editora</string>
-    <string name="keep_book_selecione_um_genero">Selecione um Gênero</string>
-    <string name="keep_book_selecione_um_autor">Selecione um Autor</string>
-    <string name="keep_author_nome_do_autor">Nome do Autor</string>
+    <string name="keep_book_editora">Editora*</string>
+    <string name="keep_book_selecione_um_genero">Selecione um Gênero*</string>
+    <string name="keep_book_selecione_um_autor">Selecione um Autor*</string>
+    <string name="keep_author_nome_do_autor">Nome do Autor*</string>
     <string name="keep_author_nacionalidade">Nacionalidade</string>
     <string name="keep_author_idade">Idade</string>
     <string name="keep_author_salvar_autor">Salvar Autor</string>
     <string name="label_editar">Editar</string>
     <string name="label_deletar">Deletar</string>
+    <string name="keep_gender_name">Nome do Gênero*</string>
+    <string name="keep_gender_save_gender">Salvar Gênero</string>
+    <string name="keep_gender_description">Descrição</string>
 </resources>

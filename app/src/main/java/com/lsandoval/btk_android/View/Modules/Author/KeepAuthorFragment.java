@@ -22,6 +22,8 @@ public class KeepAuthorFragment extends Fragment implements View.OnClickListener
 
     private ViewHolder mViewHolder = new ViewHolder();
 
+    private int mAuthorId;
+
     public KeepAuthorFragment() {
         // Required empty public constructor
     }
@@ -43,6 +45,15 @@ public class KeepAuthorFragment extends Fragment implements View.OnClickListener
         this.mViewHolder.btnSaveAuthor = this.getView().findViewById(R.id.btnKeepAuthor);
 
         this.mViewHolder.btnSaveAuthor.setOnClickListener(this);
+
+        if (getArguments() != null && KeepAuthorFragmentArgs.fromBundle(getArguments()).getAuthor() != null) {
+            final AuthorBean author = KeepAuthorFragmentArgs.fromBundle(getArguments()).getAuthor();
+            this.mAuthorId = author.getId();
+
+            this.mViewHolder.txtName.setText(author.getName());
+            this.mViewHolder.txtCountry.setText(author.getCountry());
+            this.mViewHolder.txtAge.setText(String.valueOf(author.getAge()));
+        }
     }
 
     @Override
@@ -67,14 +78,18 @@ public class KeepAuthorFragment extends Fragment implements View.OnClickListener
         final AuthorBean author = new AuthorBean();
         final AuthorController authorController = new AuthorController(this.getContext());
 
-        if (this.mViewHolder.txtName.getText() != null)  author.setName(this.mViewHolder.txtName.getText().toString());
-        if (this.mViewHolder.txtAge.getText() != null) author.setAge(Integer.parseInt(this.mViewHolder.txtAge.getText().toString()));
+        if (this.mViewHolder.txtName.getText() != null) author.setName(this.mViewHolder.txtName.getText().toString());
+        if (!"".equals(this.mViewHolder.txtAge.getText().toString())) author.setAge(Integer.parseInt(this.mViewHolder.txtAge.getText().toString()));
         if (this.mViewHolder.txtCountry.getText() != null) author.setCountry(this.mViewHolder.txtCountry.getText().toString());
 
-        if (authorController.registerAuthor(author)) {
-            Navigation.findNavController(v).popBackStack();
-            Snackbar.make(v, "Autor salvo com sucesso!", Snackbar.LENGTH_LONG).show();
+        if (this.mAuthorId != 0) {
+            author.setId(this.mAuthorId);
+            authorController.editAuthor(author);
+        } else {
+            authorController.registerAuthor(author);
         }
+        Snackbar.make(v, "Autor salvo com sucesso!", Snackbar.LENGTH_LONG).show();
+        Navigation.findNavController(v).popBackStack();
 
     }
 

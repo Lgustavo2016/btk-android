@@ -52,7 +52,7 @@ public class AuthorCardAdapter extends RecyclerView.Adapter<AuthorCardHolder> {
     }
 
     private void _editAuthor(int position, View view) {
-        final AuthorFragmentDirections.ActionNext keepAuthor = AuthorFragmentDirections.actionNext();
+        final AuthorFragmentDirections.ActionNext keepAuthor = AuthorFragmentDirections.actionNext().setAuthor(mAuthors.get(position));
         Navigation.findNavController(view).navigate(keepAuthor);
     }
 

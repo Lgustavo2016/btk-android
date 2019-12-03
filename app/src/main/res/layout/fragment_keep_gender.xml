@@ -1,7 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/framelayoutConfig"
     tools:context=".View.Modules.Gender.KeepGenderFragment">
 
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/editTxtGenderNameLayout"
+            style="@style/editText">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTxtGenderName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/keep_gender_name" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/editTxtGenderDescriptionLayout"
+            style="@style/editText"
+            android:layout_below="@id/editTxtGenderNameLayout"
+            app:counterEnabled="true"
+            app:counterMaxLength="100"
+            app:counterTextColor="@color/colorBlack">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTxtDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/keep_gender_description"
+                android:inputType="textMultiLine"
+                android:lines="3"
+                android:maxLines="3" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btnKeepGender"
+            style="@style/primaryButton"
+            android:layout_alignParentBottom="true"
+            android:text="@string/keep_gender_save_gender" />
+    </RelativeLayout>
 </FrameLayout>

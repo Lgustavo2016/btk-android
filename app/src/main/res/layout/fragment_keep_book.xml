@@ -26,13 +26,13 @@
 
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/dropdownAuthor"
+                android:id="@+id/dropdownAuthorLayout"
                 style="@style/userDropdown"
                 android:layout_below="@id/editTxtBookNameLayout"
                 android:hint="@string/keep_book_selecione_um_autor">
 
                 <AutoCompleteTextView
-                    android:id="@+id/filled_exposed_dropdown"
+                    android:id="@+id/dropdownAuthor"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
@@ -41,7 +41,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/dropdownGenderLayout"
                 style="@style/genderDropdown"
-                android:layout_below="@id/dropdownAuthor"
+                android:layout_below="@id/dropdownAuthorLayout"
                 android:hint="@string/keep_book_selecione_um_genero">
 
                 <AutoCompleteTextView

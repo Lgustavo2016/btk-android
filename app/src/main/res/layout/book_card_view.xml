@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="10dp"
+    android:layout_margin="15dp"
     android:minHeight="100dp"
     app:cardBackgroundColor="@color/cardBackground">
 
@@ -12,16 +12,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="15dp">
+        android:padding="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="15dp">
+            android:padding="10dp">
 
             <TextView
-                android:id="@+id/author_card_title"
+                android:id="@+id/book_card_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
@@ -31,21 +31,52 @@
                 tools:text="Title" />
 
             <TextView
-                android:id="@+id/author_card_age"
+                android:id="@+id/book_card_gender"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
+                android:layout_marginBottom="10dp"
                 android:textColor="#222222"
                 android:textSize="15sp"
-                tools:text="Age" />
+                android:drawableStart="@drawable/ic_format_quote"
+                tools:text="Gender" />
 
             <TextView
-                android:id="@+id/author_card_nationality"
+                android:id="@+id/book_card_author"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorBlack"
+                android:layout_marginBottom="10dp"
+                android:drawableStart="@drawable/ic_person"
+                android:textColor="#222222"
                 android:textSize="15sp"
-                tools:text="Nationality" />
+                tools:text="Author" />
+
+            <TextView
+                android:id="@+id/book_card_publishingCompany"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:textColor="#222222"
+                android:textSize="15sp"
+                tools:text="Publishing Company" />
+
+            <TextView
+                android:id="@+id/book_card_quantity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:textColor="#222222"
+                android:textSize="15sp"
+                tools:text="Quantity" />
+
+            <TextView
+                android:id="@+id/book_card_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:textColor="#222222"
+                android:textSize="15sp"
+                tools:text="Description" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -58,14 +89,14 @@
                 android:layout_weight="1" />
 
             <Button
-                android:id="@+id/author_card_editBtn"
+                android:id="@+id/book_card_editBtn"
                 style="@style/primaryButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/label_editar" />
 
             <Button
-                android:id="@+id/author_card_deleteBtn"
+                android:id="@+id/book_card_deleteBtn"
                 style="@style/secondaryButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

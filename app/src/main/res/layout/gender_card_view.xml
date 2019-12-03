@@ -21,7 +21,7 @@
             android:padding="15dp">
 
             <TextView
-                android:id="@+id/author_card_title"
+                android:id="@+id/gender_card_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
@@ -31,21 +31,14 @@
                 tools:text="Title" />
 
             <TextView
-                android:id="@+id/author_card_age"
+                android:id="@+id/gender_card_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
                 android:textColor="#222222"
                 android:textSize="15sp"
-                tools:text="Age" />
+                tools:text="Description" />
 
-            <TextView
-                android:id="@+id/author_card_nationality"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/colorBlack"
-                android:textSize="15sp"
-                tools:text="Nationality" />
         </LinearLayout>
 
         <LinearLayout
@@ -58,14 +51,14 @@
                 android:layout_weight="1" />
 
             <Button
-                android:id="@+id/author_card_editBtn"
+                android:id="@+id/gender_card_editBtn"
                 style="@style/primaryButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/label_editar" />
 
             <Button
-                android:id="@+id/author_card_deleteBtn"
+                android:id="@+id/gender_card_deleteBtn"
                 style="@style/secondaryButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

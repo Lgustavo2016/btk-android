@@ -4,12 +4,4 @@
     style="@style/framelayoutConfig"
     tools:context=".View.Modules.Home.HomeFragment">
 
-    <LinearLayout
-        android:id="@+id/usersList"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-    </LinearLayout>
-
 </FrameLayout>
