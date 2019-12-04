@@ -38,6 +38,7 @@ public class BookCardAdapter extends RecyclerView.Adapter<BookCardHolder> {
         holder.gender.setText(mBooks.get(position).getGenderName());
         holder.publishingCompany.setText(mBooks.get(position).getPublishingCompany());
         holder.quantity.setText(String.valueOf(mBooks.get(position).getQuantity()));
+        holder.description.setText(mBooks.get(position).getDescription());
 
         holder.btnEdit.setOnClickListener(view -> _editBook(position, view));
         holder.btnDelete.setOnClickListener(view -> _removeBook(position, view));

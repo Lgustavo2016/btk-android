@@ -80,7 +80,7 @@ public class BookDAO extends DatabaseHelper {
 
     public List<BookBean> listAll() {
         try {
-            final String sql = "SELECT book.id, book.name, book.publishingCompany, book.quantity, "
+            final String sql = "SELECT book.id, book.name, book.publishingCompany, book.quantity, book.description, "
                     + " gender.name as genderName, gender.id as genderId, author.id as authorId, author.name as authorName "
                     + " FROM book as book INNER JOIN author as author ON book.author_id = author.id "
                     + " INNER JOIN gender as gender ON book.gender_id = gender.id ORDER BY -book.id";

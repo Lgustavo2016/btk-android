@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -82,7 +83,7 @@ public class KeepBookFragment extends Fragment implements View.OnClickListener {
 
     private void _setupAuthorAutoComplete() {
         final List<AuthorBean> authors = new AuthorController(getContext()).listAllAuthors();
-        final ArrayAdapter<AuthorBean> authorsAdapter = new ArrayAdapter<>(getContext(), R.layout.support_simple_spinner_dropdown_item, authors);
+        final ArrayAdapter<AuthorBean> authorsAdapter = new ArrayAdapter<>(getContext(), android.R.layout.select_dialog_item, authors);
 
         this.mViewHolder.authorAutoComplete.setAdapter(authorsAdapter);
 
@@ -97,13 +98,13 @@ public class KeepBookFragment extends Fragment implements View.OnClickListener {
 
     private void _setupGenderAutoComplete() {
         final List<GenderBean> genders = new GenderController(getContext()).listAllGenders();
-        final ArrayAdapter<GenderBean> gendersAdapter = new ArrayAdapter<>(getContext(), R.layout.support_simple_spinner_dropdown_item, genders);
+        final ArrayAdapter<GenderBean> gendersAdapter = new ArrayAdapter<>(getContext(), android.R.layout.select_dialog_item, genders);
 
-        this.mViewHolder.authorAutoComplete.setAdapter(gendersAdapter);
+        this.mViewHolder.genderAutoComplete.setAdapter(gendersAdapter);
 
-        this.mViewHolder.authorAutoComplete.setThreshold(1);
+        this.mViewHolder.genderAutoComplete.setThreshold(1);
 
-        this.mViewHolder.authorAutoComplete.setOnItemClickListener((arg0, arg1, arg2, arg3) -> {
+        this.mViewHolder.genderAutoComplete.setOnItemClickListener((arg0, arg1, arg2, arg3) -> {
             final GenderBean selectedGender = (GenderBean) arg0.getAdapter().getItem(arg2);
             this.mSelectedGenderId = selectedGender.getId();
         });
@@ -132,8 +133,8 @@ public class KeepBookFragment extends Fragment implements View.OnClickListener {
         final BookController bookController = new BookController(getContext());
 
         bookBean.setName(this.mViewHolder.txtName.getText().toString());
-        bookBean.setAuthorId(Integer.parseInt(this.mViewHolder.authorAutoComplete.getText().toString()));
-        bookBean.setGenderId(Integer.parseInt(this.mViewHolder.genderAutoComplete.getText().toString()));
+        bookBean.setAuthorId(this.mSelectedAuthorId);
+        bookBean.setGenderId(this.mSelectedGenderId);
         bookBean.setPublishingCompany(this.mViewHolder.txtPublishingCompany.getText().toString());
 
         if (!this.mViewHolder.txtQuantity.getText().toString().isEmpty())
@@ -157,7 +158,7 @@ public class KeepBookFragment extends Fragment implements View.OnClickListener {
         TextInputEditText txtSummary;
         TextInputEditText txtQuantity;
         Button btnKeepBook;
-        MaterialAutoCompleteTextView authorAutoComplete;
-        MaterialAutoCompleteTextView genderAutoComplete;
+        AutoCompleteTextView authorAutoComplete;
+        AutoCompleteTextView genderAutoComplete;
     }
 }

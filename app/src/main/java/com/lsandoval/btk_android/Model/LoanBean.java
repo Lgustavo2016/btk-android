@@ -11,6 +11,8 @@ public class LoanBean implements Serializable {
     private Date returnDate;
     private int idRenter;
     private String nameRenter;
+    private int idBook;
+    private String nameBook;
     private int idLessee;
     private String nameLessee;
 
@@ -78,5 +80,20 @@ public class LoanBean implements Serializable {
         this.nameLessee = nameLessee;
     }
 
+    public int getIdBook() {
+        return idBook;
+    }
+
+    public void setIdBook(int idBook) {
+        this.idBook = idBook;
+    }
+
+    public String getNameBook() {
+        return nameBook;
+    }
+
+    public void setNameBook(String nameBook) {
+        this.nameBook = nameBook;
+    }
 
 }

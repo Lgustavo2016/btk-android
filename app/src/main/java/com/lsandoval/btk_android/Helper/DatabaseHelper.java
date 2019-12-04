@@ -51,17 +51,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     "REFERENCES gender(id)) ",
             "CREATE TABLE loan" +
                     "( id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                    "loanstatus VARCHAR NOT NULL, " +
+                    "loanStatus VARCHAR NOT NULL, " +
                     "loanDate DATE NOT NULL, " +
                     "returnDate DATE NOT NULL, " +
                     "renter_id INTEGER NOT NULL, " +
                     "lessee_id INTEGER NOT NULL, " +
+                    "book_id INTEGER NOT NULL, " +
                     "CONSTRAINT renter_id " +
                     "FOREIGN KEY (renter_id) " +
                     "REFERENCES user(id), " +
                     "CONSTRAINT lessee_id " +
                     "FOREIGN KEY (lessee) " +
-                    "REFERENCES user(id)) ",
+                    "REFERENCES user(id)) " +
+                    "CONSTRAINT book_id " +
+                    "FOREIGN KEY (book_id) " +
+                    "REFERENCES book(id)"
     };
     // endregion
 

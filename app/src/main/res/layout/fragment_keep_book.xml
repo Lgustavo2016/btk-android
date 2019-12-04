@@ -33,6 +33,7 @@
 
                 <AutoCompleteTextView
                     android:id="@+id/dropdownAuthor"
+                    android:dropDownAnchor="@id/dropdownAuthorLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
