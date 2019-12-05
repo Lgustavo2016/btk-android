@@ -1,30 +1,30 @@
 package com.lsandoval.btk_android.View.Modules.Home;
 
-
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.lsandoval.btk_android.Controller.UserController;
-import com.lsandoval.btk_android.Model.UserBean;
+import com.lsandoval.btk_android.Controller.LoanController;
+import com.lsandoval.btk_android.Model.LoanBean;
 import com.lsandoval.btk_android.R;
+import com.lsandoval.btk_android.View.Modules.Loan.Adapter.LoanCardAdapter;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class HomeFragment extends Fragment implements View.OnClickListener {
+public class HomeFragment extends Fragment {
 
-    private final ViewHolder mViewHolder = new ViewHolder();
+    private RecyclerView mRecyclerView;
+
+    private LoanCardAdapter mLoanCardAdapter;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -40,13 +40,28 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        this._setupView();
+        this._setupRecycler();
+        this._getLoans();
     }
 
-    @Override
-    public void onClick(View v) {
-
+    private void _setupView() {
+        this.mRecyclerView = getView().findViewById(R.id.recycler_view_layout_loan);
     }
 
-    private static class ViewHolder {
+    private void _setupRecycler() {
+        final LinearLayoutManager layoutManager = new LinearLayoutManager(this.getContext());
+        mRecyclerView.setLayoutManager(layoutManager);
+
+        this.mLoanCardAdapter = new LoanCardAdapter(new ArrayList<LoanBean>(0));
+        mRecyclerView.setAdapter(this.mLoanCardAdapter);
+    }
+
+    private void _getLoans() {
+        final List<LoanBean> loans = new LoanController(this.getContext()).listAllLoans();
+
+        if (loans.size() > 0)
+            for (LoanBean loan : loans) mLoanCardAdapter.updateList(loan);
     }
 }

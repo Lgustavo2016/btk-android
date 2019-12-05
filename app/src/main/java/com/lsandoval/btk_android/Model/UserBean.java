@@ -43,7 +43,7 @@ public class UserBean implements Serializable {
 
     @Override
     public String toString() {
-        return "Name: " + this.getName() + " Email: " + this.getEmail();
+        return this.name;
     }
 
 }

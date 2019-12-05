@@ -7,13 +7,10 @@ import android.database.sqlite.SQLiteDatabase;
 import com.lsandoval.btk_android.Helper.DatabaseHelper;
 import com.lsandoval.btk_android.Model.LoanBean;
 
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
 public class LoanDAO extends DatabaseHelper {
-
-    private final String TABLE_NAME = "loan";
 
     public LoanDAO(Context context) {
         super(context);
@@ -27,7 +24,7 @@ public class LoanDAO extends DatabaseHelper {
 
             final SQLiteDatabase db = this.getWritableDatabase();
 
-            final boolean hasCreated = db.rawQuery(sql, new String[]{ String.valueOf(loan.getIdRenter()), String.valueOf(loan.getIdLessee()), String.valueOf(loan.getIdBook())}).moveToFirst();
+            final boolean hasCreated = db.rawQuery(sql, new String[]{String.valueOf(loan.getIdRenter()), String.valueOf(loan.getIdLessee()), String.valueOf(loan.getIdBook())}).moveToFirst();
 
             db.close();
 
@@ -39,28 +36,14 @@ public class LoanDAO extends DatabaseHelper {
 
     public boolean closeLoan(LoanBean loan) {
         try {
-            final String sql = "UPDATE loan SET returnDate = DATE(NOW()), loanStatus = 'Finalizado' WHERE id = ?";
+            final String sql = "UPDATE loan SET returnDate = date('now'), loanStatus = 'Finalizado' WHERE id = ?";
             final SQLiteDatabase db = this.getWritableDatabase();
 
-            final boolean hasClosed =db.rawQuery(sql, new String[]{ String.valueOf(loan.getId()) }).moveToFirst();
+            final boolean hasClosed = db.rawQuery(sql, new String[]{String.valueOf(loan.getId())}).moveToFirst();
 
             db.close();
 
             return hasClosed;
-        } catch (Exception e) {
-            throw new Error(e);
-        }
-    }
-
-    public boolean delete(int loanId) {
-        try {
-            final SQLiteDatabase db = this.getWritableDatabase();
-
-            final boolean hasDeleted = db.delete(this.TABLE_NAME, "id = ?", new String[]{String.valueOf(loanId)}) > 0;
-
-            db.close();
-
-            return hasDeleted;
         } catch (Exception e) {
             throw new Error(e);
         }
@@ -92,8 +75,8 @@ public class LoanDAO extends DatabaseHelper {
                     loan.setNameBook(cursor.getString(cursor.getColumnIndex("book")));
                     loan.setNameRenter(cursor.getString(cursor.getColumnIndex("renter")));
                     loan.setNameLessee(cursor.getString(cursor.getColumnIndex("lessee")));
-                    loan.setLoanDate(Date.valueOf(cursor.getString(cursor.getColumnIndex("loanDate"))));
-                    loan.setReturnDate(Date.valueOf(cursor.getString(cursor.getColumnIndex("returnDate"))));
+                    loan.setLoanDate(cursor.getString(cursor.getColumnIndex("loanDate")));
+                    loan.setReturnDate(cursor.getString(cursor.getColumnIndex("returnDate")));
                     loan.setLoanStatus(cursor.getString(cursor.getColumnIndex("loanStatus")));
 
                     loans.add(loan);

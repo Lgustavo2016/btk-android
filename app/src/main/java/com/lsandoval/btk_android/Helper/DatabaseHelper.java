@@ -3,6 +3,7 @@ package com.lsandoval.btk_android.Helper;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
@@ -49,7 +50,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     "CONSTRAINT gender_id " +
                     "FOREIGN KEY (gender_id) " +
                     "REFERENCES gender(id)) ",
-            "CREATE TABLE loan" +
+            "CREATE TABLE loan " +
                     "( id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     "loanStatus VARCHAR NOT NULL, " +
                     "loanDate DATE NOT NULL, " +
@@ -62,10 +63,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     "REFERENCES user(id), " +
                     "CONSTRAINT lessee_id " +
                     "FOREIGN KEY (lessee) " +
-                    "REFERENCES user(id)) " +
+                    "REFERENCES user(id), " +
                     "CONSTRAINT book_id " +
                     "FOREIGN KEY (book_id) " +
-                    "REFERENCES book(id)"
+                    "REFERENCES book(id))"
     };
     // endregion
 
@@ -75,11 +76,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        for (final String createTableQuery : CREATE_DATABASE_TABLES) db.execSQL(createTableQuery);
+        for (int i = 0; i <= CREATE_DATABASE_TABLES.length; i++) {
+            try {
+                db.execSQL(CREATE_DATABASE_TABLES[i]);
+            } catch (Exception e) {
+                throw new Error(e);
+            }
+        }
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        for (final String table : DATABASE_TABLES) db.execSQL(String.format("DROP TABLE IF EXISTS %s", table));
+        for (final String table : DATABASE_TABLES)
+            db.execSQL(String.format("DROP TABLE IF EXISTS %s", table));
     }
 }

@@ -1,5 +1,7 @@
 package com.lsandoval.btk_android.Model;
 
+import androidx.annotation.NonNull;
+
 import java.io.Serializable;
 
 public class BookBean implements Serializable {
@@ -84,5 +86,11 @@ public class BookBean implements Serializable {
 
     public void setGenderName(String genderName) {
         this.genderName = genderName;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return this.name;
     }
 }

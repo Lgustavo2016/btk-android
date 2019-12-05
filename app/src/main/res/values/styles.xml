@@ -137,4 +137,9 @@
         <item name="endIconDrawable">@drawable/ic_format_quote</item>
     </style>
 
+    <style name="bookDropdown" parent="dropdown">
+        <item name="endIconMode">custom</item>
+        <item name="endIconDrawable">@drawable/ic_book_black_24dp</item>
+    </style>
+
 </resources>

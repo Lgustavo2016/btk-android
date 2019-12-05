@@ -1,7 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/framelayoutConfig"
-    tools:context=".View.Modules.Home.KeepLoanFragment">
+    tools:context=".View.Modules.Loan.KeepLoanFragment">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/dropdown_book_layout"
+            style="@style/bookDropdown"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textview.MaterialAutoCompleteTextView
+                android:id="@+id/dropdown_book"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusedByDefault="true"
+                android:hint="@string/keep_loan_selecione_um_livro" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/dropdown_user_layout"
+            style="@style/userDropdown"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dropdown_book_layout"
+            app:helperText="Para quem você quer emprestar este livro?">
+
+            <com.google.android.material.textview.MaterialAutoCompleteTextView
+                android:id="@+id/dropdown_lessee"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:hint="@string/keep_loan_selecione_um_locatario" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLendOrReturn"
+            style="@style/primaryButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:hint="@string/keep_loan_lend_now"
+            android:textColorHint="@color/colorWhite" />
+
+    </RelativeLayout>
 </FrameLayout>

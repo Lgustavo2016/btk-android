@@ -1,14 +1,13 @@
 package com.lsandoval.btk_android.Model;
 
 import java.io.Serializable;
-import java.sql.Date;
 
 public class LoanBean implements Serializable {
 
     private int id;
-    private Date loanDate;
+    private String loanDate;
     private String loanStatus;
-    private Date returnDate;
+    private String returnDate;
     private int idRenter;
     private String nameRenter;
     private int idBook;
@@ -24,11 +23,11 @@ public class LoanBean implements Serializable {
         this.id = id;
     }
 
-    public Date getLoanDate() {
+    public String getLoanDate() {
         return loanDate;
     }
 
-    public void setLoanDate(Date loanDate) {
+    public void setLoanDate(String loanDate) {
         this.loanDate = loanDate;
     }
 
@@ -40,11 +39,11 @@ public class LoanBean implements Serializable {
         this.loanStatus = loanStatus;
     }
 
-    public Date getReturnDate() {
+    public String getReturnDate() {
         return returnDate;
     }
 
-    public void setReturnDate(Date returnDate) {
+    public void setReturnDate(String returnDate) {
         this.returnDate = returnDate;
     }
 

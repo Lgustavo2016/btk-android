@@ -4,7 +4,6 @@
     style="@style/framelayoutConfig"
     tools:context=".View.Modules.Gender.GenderFragment">
 
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_layout_gender"
         android:layout_width="match_parent"

@@ -4,4 +4,24 @@
     style="@style/framelayoutConfig"
     tools:context=".View.Modules.Home.HomeFragment">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorBlack"
+            android:textSize="20dp"
+            android:layout_marginLeft="10dp"
+            android:textStyle="bold"
+            tools:text="Todos os Empréstimos" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_layout_loan"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/loan_card_view" />
+    </LinearLayout>
 </FrameLayout>

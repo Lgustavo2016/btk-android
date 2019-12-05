@@ -25,4 +25,11 @@
     <string name="keep_gender_name">Nome do Gênero*</string>
     <string name="keep_gender_save_gender">Salvar Gênero</string>
     <string name="keep_gender_description">Descrição</string>
+    <string name="keep_loan_lend_now">Emprestar agora</string>
+    <string name="keep_loan_selecione_um_livro">Selecione um Livro</string>
+    <string name="keep_loan_selecione_um_locatario">Selecione um Locatário</string>
+    <string name="label_devolver">Devolver</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -76,7 +76,7 @@
     </fragment>
     <fragment
         android:id="@+id/destination_keep_loan"
-        android:name="com.lsandoval.btk_android.View.Modules.Home.KeepLoanFragment"
+        android:name="com.lsandoval.btk_android.View.Modules.Loan.KeepLoanFragment"
         android:label="Manter Empréstimo"
         tools:layout="@layout/fragment_keep_loan">
         <argument
