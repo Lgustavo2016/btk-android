@@ -46,6 +46,7 @@ public class UserDAO extends DatabaseHelper {
             final Cursor cursor = db.rawQuery(sql, new String[]{user.getEmail(), user.getPassword()});
 
             if (cursor.moveToFirst()) {
+                user.setId(cursor.getInt(cursor.getColumnIndex("id")));
                 user.setName(cursor.getString(cursor.getColumnIndex("name")));
 
                 db.close();

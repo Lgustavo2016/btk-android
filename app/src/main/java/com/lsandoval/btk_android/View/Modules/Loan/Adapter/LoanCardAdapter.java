@@ -1,5 +1,6 @@
 package com.lsandoval.btk_android.View.Modules.Loan.Adapter;
 
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,9 +33,11 @@ public class LoanCardAdapter extends RecyclerView.Adapter<LoanCardHolder> {
     @Override
     public void onBindViewHolder(LoanCardHolder holder, int position) {
         holder.title.setText(String.format("%s #%d ", "Empréstimo", mLoans.get(position).getId()));
+        holder.status.setText(mLoans.get(position).getLoanStatus());
         holder.lendDate.setText(mLoans.get(position).getLoanDate());
         holder.returnDate.setText(mLoans.get(position).getReturnDate());
         holder.renter.setText(mLoans.get(position).getNameRenter());
+        holder.book.setText(mLoans.get(position).getNameBook());
         holder.lessee.setText(mLoans.get(position).getNameLessee());
 
         holder.btnReturnBook.setOnClickListener(view -> _closeLoan(position, view));

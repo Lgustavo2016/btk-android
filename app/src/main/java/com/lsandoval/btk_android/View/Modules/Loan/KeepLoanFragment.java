@@ -73,6 +73,8 @@ public class KeepLoanFragment extends Fragment implements View.OnClickListener {
 
             this.mSelectedBookId = loan.getIdBook();
             this.mSelectedLesseeId = loan.getIdLessee();
+
+            this.mViewHolder.btnLendOrReturn.setHint("Finalizar Empréstimo");
         }
     }
 

@@ -51,7 +51,7 @@ public class LoanDAO extends DatabaseHelper {
 
     public List<LoanBean> listAll() {
         try {
-            final String sql = "SELECT loan.id, renter.name AS renter, lessee.name AS lessee, book.name AS book,"
+            final String sql = "SELECT loan.id, renter.id as renterId, renter.name AS renterName, lessee.id as lesseeId, lessee.name AS lesseeName, book.id as bookId, book.name AS bookName,"
                     + " loan.loanDate, loan.returnDate, loan.loanStatus"
                     + " FROM loan AS loan"
                     + " INNER JOIN user AS renter"
@@ -60,7 +60,7 @@ public class LoanDAO extends DatabaseHelper {
                     + " ON loan.lessee_id = lessee.id"
                     + " INNER JOIN book AS book"
                     + " ON loan.book_id = book.id"
-                    + " ORDER BY loan.id";
+                    + " ORDER BY -loan.id";
 
             final SQLiteDatabase db = this.getReadableDatabase();
 
@@ -72,9 +72,12 @@ public class LoanDAO extends DatabaseHelper {
                     final LoanBean loan = new LoanBean();
 
                     loan.setId(cursor.getInt(cursor.getColumnIndex("id")));
-                    loan.setNameBook(cursor.getString(cursor.getColumnIndex("book")));
-                    loan.setNameRenter(cursor.getString(cursor.getColumnIndex("renter")));
-                    loan.setNameLessee(cursor.getString(cursor.getColumnIndex("lessee")));
+                    loan.setIdBook(cursor.getInt(cursor.getColumnIndex("bookId")));
+                    loan.setNameBook(cursor.getString(cursor.getColumnIndex("bookName")));
+                    loan.setIdRenter(cursor.getInt(cursor.getColumnIndex("renterId")));
+                    loan.setNameRenter(cursor.getString(cursor.getColumnIndex("renterName")));
+                    loan.setIdLessee(cursor.getInt(cursor.getColumnIndex("lesseeId")));
+                    loan.setNameLessee(cursor.getString(cursor.getColumnIndex("lesseeName")));
                     loan.setLoanDate(cursor.getString(cursor.getColumnIndex("loanDate")));
                     loan.setReturnDate(cursor.getString(cursor.getColumnIndex("returnDate")));
                     loan.setLoanStatus(cursor.getString(cursor.getColumnIndex("loanStatus")));

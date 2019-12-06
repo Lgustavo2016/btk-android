@@ -11,6 +11,7 @@ import com.lsandoval.btk_android.R;
 public class LoanCardHolder extends RecyclerView.ViewHolder {
 
     public TextView title;
+    public TextView status;
     public TextView lendDate;
     public TextView returnDate;
     public TextView renter;
@@ -22,6 +23,7 @@ public class LoanCardHolder extends RecyclerView.ViewHolder {
         super(itemView);
 
         title = itemView.findViewById(R.id.loan_card_title);
+        status = itemView.findViewById(R.id.loan_card_status);
         lendDate = itemView.findViewById(R.id.loan_card_lend_date);
         returnDate = itemView.findViewById(R.id.loan_card_return_date);
         renter = itemView.findViewById(R.id.loan_card_renter);

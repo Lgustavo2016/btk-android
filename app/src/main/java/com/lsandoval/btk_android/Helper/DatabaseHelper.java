@@ -8,7 +8,7 @@ import android.util.Log;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     // region database configs
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
     private static final String DATABASE_NAME = "btk.db";
     // endregion
 
@@ -26,7 +26,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     "( id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     "name VARCHAR NOT NULL, " +
                     "email VARCHAR NOT NULL, " +
-                    "password VARCHAR NOT NULL )",
+                    "password VARCHAR NOT NULL );",
             "CREATE TABLE author " +
                     "( id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     "name VARCHAR NOT NULL, " +
@@ -35,7 +35,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             "CREATE TABLE gender " +
                     "( id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     "name VARCHAR NOT NULL, " +
-                    "description VARCHAR )",
+                    "description VARCHAR );",
             "CREATE TABLE book " +
                     "( id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     "name VARCHAR NOT NULL, " +
@@ -49,7 +49,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     "REFERENCES author(id), " +
                     "CONSTRAINT gender_id " +
                     "FOREIGN KEY (gender_id) " +
-                    "REFERENCES gender(id)) ",
+                    "REFERENCES gender(id)); ",
             "CREATE TABLE loan " +
                     "( id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     "loanStatus VARCHAR NOT NULL, " +
@@ -62,11 +62,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     "FOREIGN KEY (renter_id) " +
                     "REFERENCES user(id), " +
                     "CONSTRAINT lessee_id " +
-                    "FOREIGN KEY (lessee) " +
+                    "FOREIGN KEY (lessee_id) " +
                     "REFERENCES user(id), " +
                     "CONSTRAINT book_id " +
                     "FOREIGN KEY (book_id) " +
-                    "REFERENCES book(id))"
+                    "REFERENCES book(id));"
     };
     // endregion
 
@@ -76,13 +76,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        for (int i = 0; i <= CREATE_DATABASE_TABLES.length; i++) {
-            try {
-                db.execSQL(CREATE_DATABASE_TABLES[i]);
-            } catch (Exception e) {
-                throw new Error(e);
-            }
-        }
+        for (int i = 0; i < CREATE_DATABASE_TABLES.length; i++)
+            db.execSQL(CREATE_DATABASE_TABLES[i]);
     }
 
     @Override
